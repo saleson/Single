@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<link href="framework/kendo/styles/kendo.common.min.css" rel="stylesheet" />
+<link href="framework/kendo/styles/kendo.default.min.css" rel="stylesheet" />
+<link href="content/shared/styles/examples.css?20121115" rel="stylesheet" />
+<link href="framework/single/styles/desktop.css" rel="stylesheet" />
+<script src="framework/kendo/js/jquery.min.js" type="text/javascript"></script>
+<!-- <script src="framework/kendo/js/kendo.all.min.js" type="text/javascript"></script> -->
+
+<script src="framework/kendo/sources/js/kendo.web.js" type="text/javascript"></script>
+<script src="framework/kendo/sources/js/kendo.window.js" type="text/javascript"></script>
+<script src="framework/single/js/SingleWindow.js" type="text/javascript"></script>
+<script src="framework/single/js/Desktop.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<div id="tablecover" style="overflow: hidden" class="desktop">
+		<div id="tablecover_inner" class="appListContainer">
+			<div class="appButton" id="1" style="left:27px; top:12px;">
+				<div class="appButton_appIcon">
+					<img alt="金山快盘" src="framework/images/icon/big.png"
+						class="appButton_appIconImg">
+				</div>
+				<div class="appButton_appName">
+					<div class="appButton_appName_inner">金山快盘</div><div class="appButton_appName_inner_right"></div>
+				</div>
+			</div>
+
+			<div class="appButton" id="2" style="left:27px; top:124px;">
+				<div class="appButton_appIcon">
+					<img alt="乐视网" src="framework/images/icon/icon4.png">
+				</div>
+				<div class="appButton_appName">
+					<div class="appButton_appName_inner">乐视网</div><div class="appButton_appName_inner_right"></div>
+				</div>
+			</div>
+<!-- 		<div id="window" style="overflow: hidden"></div> -->
+			<!-- 			<div id="draggable"></div> -->
+			<!-- 			<div id="droptarget">Start dragging.</div> -->
+		</div>
+		
+		<div class="bottomBarBgTask"></div>
+		
+		
+		
+		<div class="bottomBar" id="bottomBar" style="z-index: 12;">
+			
+			
+			
+			<div id="taskContainer" class="taskContainer" style="width: 342px;">
+				<div id="taskContainerInner" class="taskContainerInner" style="margin-right: 0px; width: 342px;">
+					<div id="taskGroup_4_4" class="taskGroup taskCurrent">
+						<div class="taskItemBox" style="display: block;">
+							<a id="taskItem_2" class="taskItem fistTaskItem" href="#" appid="4_4" tid="4" title="搜搜地图">
+								<div class="taskItemIcon">
+									<img src="http://4.web.qstatic.com/webqqpic/pubapps/0/4/images/mid.png">
+								</div>							 
+								<div class="taskItemTxt">搜搜地图</div>
+							</a>
+						</div>
+					</div>
+					
+					<div id="taskGroup_6_6" class="taskGroup ">
+						<div class="taskItemBox" style="display: block;">
+							<a id="taskItem_1" class="taskItem fistTaskItem" href="#" appid="6_6" tid="6" title="浏览网页">
+								<div class="taskItemIcon">
+									<img src="http://6.web.qstatic.com/webqqpic/pubapps/0/6/images/mid.png">
+								</div>							 
+								<div class="taskItemTxt">浏览网页</div>
+							</a>
+						</div>
+					</div>
+					
+					<div id="taskGroup_64_64" class="taskGroup">
+						<div class="taskItemBox" style="display: block;">
+							<a id="taskItem_0" class="taskItem fistTaskItem" href="#" appid="64_64" tid="64" title="Pixlr">
+								<div class="taskItemIcon">
+									<img src="http://4.web.qstatic.com/webqqpic/pubapps/0/64/images/mid.png">							 
+								</div>							 
+								<div class="taskItemTxt">Pixlr</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- <div id="taskNextBox" class="taskNextBox" _olddisplay="">
+				<a hidefocus="true" id="taskNext" class="taskNext" href="#"></a>
+			</div> 
+			<div id="taskPreBox" class="taskPreBox" _olddisplay="">
+				<a hidefocus="true" id="taskPre" class="taskPre" href="#"></a>
+			</div>-->
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		function draggableOnDragStart(e) {
+			//alert("a");
+		}
+
+		function droptargetOnDragEnter(e) {
+			//alert("Now drop...");
+		}
+
+		function droptargetOnDragLeave(e) {
+			//alert("(Drop here)");
+		}
+
+		function droptargetOnDrop(e) {
+			///alert("You did great!");
+		}
+
+		function draggableOnDragEnd(e) {
+			//alerttext("Try again!");
+		}
+
+		$(document).ready(
+				function() {
+					$(".appButton").kendoDraggable({
+						hint : function(o) {
+							return o.clone();
+						},
+						dragstart : draggableOnDragStart,
+						dragend : draggableOnDragEnd,
+						container : $("#tablecover")
+					});
+
+					$(".appButton").kendoDropTarget({
+						filter : ".appButton",
+						dragenter : droptargetOnDragEnter,
+						dragleave : droptargetOnDragLeave,
+						drop : droptargetOnDrop
+					});
+					
+					
+					$(".appButton").bind("click", function() {
+						var id = this.id;
+						var _window = desktop.appWindow.list[id];
+						if(!_window){
+							desktop.createAppWindow(id, {
+								iframe:true,
+								content:"http://www.baidu.com",
+								width : "500px",
+								height : "400px",
+								actions : [ "Custom", "Minimize", "Maximize", "Close" ],
+								title : "About Josef Hoffmann",
+								open : function(){
+									//alert(desktop.apps.size);
+								},
+								resize : function(){
+									//alert("resize");
+								},
+								close : function() {
+									//alert("close");
+								},
+								deactivate:function(){
+									//alert("deactivate");
+								},
+								activate:function(){
+									//alert("activate");
+								},
+								destroy:function(){
+								}
+							});
+						}else if(_window.data("kendoAppWindow")){
+							_window.data("kendoAppWindow").open();
+						}
+                    });
+
+					/*window.data("kendoAppWindow").wrapper.find(".k-i-custom")
+							.click(function(e) {
+								alert("Custom action button clicked");
+								e.preventDefault();
+							});*/
+							
+							
+				});
+	</script>
+</body>
+</html>

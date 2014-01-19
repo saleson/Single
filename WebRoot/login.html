@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login Single</title>
+<link rel="stylesheet" href="login/login.css">
+</head>
+<body>
+	<div class="wrap_top_nav">
+		<nav id="top_nav">
+			<ul class="inline-style clearfix">
+				<li><a href="" target="_blank"></a>
+				</li>
+				<li><a href="" target="_blank"></a>
+				</li>
+				<li><a href="" target="_blank"></a>
+				</li>
+				<li><a href="" target="_blank"></a>
+				</li>
+			</ul>
+			<a id="read" href="" target="_blank"></a>
+		</nav>
+	</div>
+	<div class="page">
+		<header id="header">
+			<hgroup class="white">
+				<h1>Single</h1>
+				<h2>登录页面</h2>
+			</hgroup>
+		</header>
+		<section class="demo">
+			<div class="content">
+				<form action="index.jsp" method="post" class="login-form">
+					<div class="username">
+<!-- 						autofocus -->
+						<input type="text" name="username" placeholder="UserName" required autocomplete="on" /> 
+						<span class="user-icon icon">u</span>
+					</div>
+					<div class="password">
+						<input type="password" name="password" placeholder="*******" required /> <span class="password-icon icon">p</span>
+					</div>
+					<div class="account-control">
+						<input type="checkbox" name="Remember me" id="Remember me" value="Remember me" checked="checked" /> 
+							<label for="Remember me" data-on="c" class="check"></label> 
+							<label for="Remember me" class="info">Remember me</label>
+						<button type="submit">Login</button>
+					</div>
+					<p class="not-registered">
+						Not a registered user yet?<a>Sign up now!</a>
+					</p>
+				</form>
+			</div>
+		</section>
+	</div>
+</body>
+</html>

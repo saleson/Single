@@ -1,0 +1,354 @@
+@CHARSET "UTF-8";
+html {
+	overflow : hidden;
+}
+
+.desktop {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: -100;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-size: 100% 100%;
+	background: url(../../images/desktop.jpg) no-repeat center fixed;
+	background-size: 100% 100%;
+}
+
+.text {
+	display: inline-block;
+	width: auto;
+	height: 22px;
+	line-height: 22px;
+	text-align: center;
+	color: #fff;
+	background: url(../images/iconTextbg.png) no-repeat left center;
+	position: relative;
+	padding-left: 10px;
+	margin-right: 10px;
+	outline: none;
+	-moz-user-select: none;
+}
+
+#tablecover_inner {
+	position: absolute;
+	overflow: auto;
+	left: 0;
+	top: 0;
+	z-index: -99;
+	width: 100%;
+	height: 100%;
+}
+
+.appListContainer .appButton {
+	position: absolute;
+}
+
+.appButton {
+    color: white;
+    cursor: pointer;
+    display: inline;
+    float: left;
+    font-size: 12px;
+    height: 88px;
+    position: relative;
+    width: 88px;
+	padding: 0;
+	margin: 0;
+}
+
+.appButton:hover {
+    background: url("../../images/appbutton/appbutton_mouseover_bg3.png?t=20111011001") no-repeat scroll 1px 0 transparent;
+}
+
+.appListContainer .appButton_appIcon {
+	margin-top: 6px;
+}
+
+.appButton_appIcon {
+	background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    height: 48px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 48px;
+}
+
+.appButton_appIconImg {
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+
+.appListContainer .appButton_appName {
+    overflow: visible;
+}
+
+.appButton_appName {
+	color: white;
+	cursor: pointer;
+	height: 20px;
+	margin: 8px 0 0;
+	overflow: hidden;
+	text-align: center;
+}
+
+.appButton:hover .appButton_appName_inner,.appButton:hover .appButton_appName_inner_right
+	{
+	background: #4D0000;
+}
+
+.appListContainer .appButton_appName_inner {
+	display: inline-block;
+    height: 20px;
+    line-height: 18px;
+    margin: 0;
+    max-width: 78px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    text-indent: 10px;
+    vertical-align: middle;
+    width: auto;
+	border-radius: 15px 0px 0px 15px;
+	background: #312E2E;
+}
+
+.appButton_appName_inner {
+    margin: auto;
+    overflow: hidden;
+    width: 50px;
+    word-break: break-all;
+}
+
+.appListContainer .appButton_appName_inner_right {
+	display: inline-block;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    width: 10px;
+	border-radius: 0px 15px 15px 0px;
+	background: #312E2E;
+}
+
+#draggable {
+	cursor: pointer;
+	position: absolute;
+	top: 80px;
+	left: 30px;
+	border: 1px solid #ff8000;
+	width: 78px;
+	height: 78px;
+	border-radius: 37px;
+	box-shadow: 2px 0 10px #9d9d9d;
+	background: #ffcc00 50% 50% no-repeat;
+	background: -moz-linear-gradient(top, #ffcc00 0%, #ff8000 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffcc00),
+		color-stop(100%, #ff8000) );
+	background: -webkit-linear-gradient(top, #ffcc00 0%, #ff8000 100%);
+	background: -o-linear-gradient(top, #ffcc00 0%, #ff8000 100%);
+	background: -ms-linear-gradient(top, #ffcc00 0%, #ff8000 100%);
+	background: linear-gradient(top, #ffcc00 0%, #ff8000 100%);
+}
+
+#draggable.hollow {
+	cursor: default;
+	background: #ececec;
+	border-color: #cbcbcb;
+}
+
+#droptarget {
+	border: 1px solid #959595;
+	height: 198px;
+	width: 300px;
+	font-size: 36px;
+	border-radius: 37px;
+	text-align: center;
+	line-height: 198px;
+	color: #a1a1a1;
+	text-shadow: 0 1px 1px #fff;
+	margin: 0 0 30px 220px;
+	cursor: default;
+	background: #dddddd;
+	background: -moz-linear-gradient(top, #dddddd 0%, #c1c1c1 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #dddddd),
+		color-stop(100%, #c1c1c1) );
+	background: -webkit-linear-gradient(top, #dddddd 0%, #c1c1c1 100%);
+	background: -o-linear-gradient(top, #dddddd 0%, #c1c1c1 100%);
+	background: -ms-linear-gradient(top, #dddddd 0%, #c1c1c1 100%);
+	background: linear-gradient(top, #dddddd 0%, #c1c1c1 100%);
+}
+
+div .single-window-content {
+	padding: 0em;
+}
+
+/*任务栏*/
+.bottom-bar-bg-task {
+    background: url("../../images/task/bg_task_b.png") repeat-x scroll 0 41px transparent;
+    bottom: 0;
+    height: 64px;
+    position: absolute;
+    width: 100%;
+}
+
+.bottom-bar {
+    bottom: 0;
+    height: 64px;
+    position: absolute;
+    right:0;
+    /*left: 200px;*/
+}
+
+/*任务栏容器*/
+.task-container {
+    float: right;
+    height: 64px;
+    overflow: hidden;
+    width: 200px;
+}
+
+.task-container-inner {
+    float: right;
+    height: 100%;
+    transition: margin-right 0.5s ease 0s;
+}
+
+/*任务栏中的单个任务最外围的样式*/
+.bottom-bar .task-group {
+    float: left;
+    height: 100%;
+    overflow: hidden;
+    transition: width 0.5s ease 0s;
+    width: 114px;
+}
+
+/*任务栏中的单个任务项*/
+.task-item {
+    background: url("../../images/task/bg_task_nor.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 100%;
+    margin: 0 1px;
+    vertical-align: middle;
+    width: 112px;
+}
+
+/*任务栏中当前选中的任务窗口*/
+.bottom-bar .task-current .task-item {
+    background: url("../../images/task/bg_task_cur.png") no-repeat scroll 0 0 transparent;
+}
+
+/*任务栏中当鼠标经过任务窗口时,背景图片发生变化*/
+.bottom-bar .task-group .task-item:hover {
+    background: url("../../images/task/bg_task_over.png") no-repeat scroll 0 0 transparent;
+}
+
+/*单任务栏对应的页面有信息跳出来时的样式*/
+.bottom-bar .task-jump-up .task-item {
+    background: url("../../images/task/bg_task_msg.png") no-repeat scroll 0 0 transparent;
+}
+
+.task-item div {
+    cursor: pointer;
+}
+
+/*任务项中图标DIV的样式*/
+.task-item-icon {
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    float: left;
+    height: 32px;
+    margin: 22px 5px;
+    width: 32px;
+}
+
+.task-item-icon img {
+    cursor: pointer;
+    float: left;
+    height: 32px;
+    width: 32px;
+}
+
+/*任务项中文字的样式*/
+.task-item-txt {
+    color: #FFFFFF;
+    cursor: pointer;
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    margin-top: 27px;
+    overflow: hidden;
+    width: 70px;
+}
+
+/*将任务项窗口的显示内容往左移的按钮*/
+.task-previous-box {
+    background: url("../../images/task/bg_task_page_l.png") no-repeat scroll 0 0 transparent;
+    display: none;
+    float: right;
+    height: 100%;
+    margin-right: 2px;
+    overflow: hidden;
+    width: 54px;
+}
+
+.task-previous {
+    background: url("../../images/task/bg_task_page.png") no-repeat scroll -15px -50px transparent;
+    display: block;
+    height: 35px;
+    margin-left: 17px;
+    margin-top: 20px;
+    width: 20px;
+}
+
+.task-previous:hover {
+    background-position: -15px -2px;
+}
+
+.task-previous-disable, .task-previous-disable:hover {
+    background-position: -15px -97px;
+    cursor: default;
+}
+
+/*将任务项窗口的显示内容往右移的按钮*/
+.task-next-box {
+    background: url("../../images/task/bg_task_page_r.png") no-repeat scroll 0 0 transparent;
+    display: none;
+    float: right;
+    height: 100%;
+    margin-left: 2px;
+    overflow: hidden;
+    width: 54px;
+}
+
+.task-next {
+    background: url("../../images/task/bg_task_page.png") no-repeat scroll -65px -50px transparent;
+    display: block;
+    height: 35px;
+    margin-left: 15px;
+    margin-top: 20px;
+    width: 45px;
+}
+
+.task-next:hover {
+    background-position: -65px -2px;
+}
+
+.task-next-disable, .task-next-disable:hover {
+    background-position: -66px -97px;
+    cursor: default;
+}
+
+
+
+
+

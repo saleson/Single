@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<single-config xmlns="http://www.single.com/configuration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="D:\AppData\git\git\Single\src.resources\single-config.xsd ">
+    
+    <metadata-mapping>
+        <metadata name="md_test_one_list" title="测试页面主表">
+            <field name="listTestField0" caption="列表测试字段0" datatype="number" tip-title="列表测试字段0tipTitle" format="0.00"/>
+            <field name="listTestField1" caption="列表测试字段1" datatype="number" tip-title="列表测试字段1tipTitle" format="0.00"/>
+            <field name="listTestField2" caption="列表测试字段2" datatype="number" tip-title="列表测试字段2tipTitle" format="0.00"/>
+            <field name="listTestField3" caption="列表测试字段3" datatype="number" tip-title="列表测试字段3tipTitle" format="0.00"/>
+            <field name="listTestField4" caption="列表测试字段4" datatype="number" tip-title="列表测试字段4tipTitle" format="0.00"/>
+            <field name="listTestField5" caption="列表测试字段5" datatype="number" tip-title="列表测试字段5tipTitle" format="0.00"/>
+            <field name="listTestField6" caption="列表测试字段6" datatype="number" tip-title="列表测试字段6tipTitle" format="0.00"/>
+            <field name="listTestField7" caption="列表测试字段7" datatype="number" tip-title="列表测试字段7tipTitle" format="0.00"/>
+            <field name="listTestField8" caption="列表测试字段8" datatype="number" tip-title="列表测试字段8tipTitle" format="0.00"/>
+            <field name="listTestField9" caption="列表测试字段9" datatype="number" tip-title="列表测试字段9tipTitle" format="0.00"/>
+        </metadata>
+    </metadata-mapping>
+    
+    <button-mapping>
+        <ImageTextButton name="bn_public_addnew" text="新增" onClick="function addNew()" tooltip="新增单据"/>
+    </button-mapping>
+    
+    <script-mapping>
+    	<script name="test1" type="text/javascript">
+    		<![CDATA[
+    			function addNew(){
+    				alert("addNew");
+    			}
+    		]]>
+    	</script>
+    </script-mapping>
+</single-config>

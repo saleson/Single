@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="How jQuery-based Autocomplete widget works, view demo source code of Kendo UI Autocomplete.">
+    <title>Demo and source code for Kendo UI Autocomplete widget</title>
+</head>
+<body>
+
+        <div id="example" class="k-content">
+
+			<div id="shipping">
+                <label for="countries" class="info">Choose shipping countries:</label>
+
+                <input id="countries" />
+
+                <div class="hint">Start typing the name of an European country</div>
+
+			</div>
+		</div>
+            <script>
+               	(function(ua){
+               		var Sys = {OS:{}};
+				    alert(ua)
+				    var OSRxs = {
+				    	ios : /(iphone os|ipad|ipod).([\d(.|_)]+)/,
+				    	android : /(android).([\d(.|_)]+)/,
+				    	windows : /(windows nt).([\d.]+)/
+				    };
+				    
+				    var browserRxs = {
+				    	msie : /(msie).([\d.]+)/,
+				    	firefox : /(firefox)\/([\d.]+)/,
+				    	chrome : /(chrome)\/([\d.]+)/,
+				    	opera : /(opera).([\d.]+)/,
+				    	safari : /version\/([\d.]+).*(safari)/
+				    }
+				    var match;
+				    for(var agent in OSRxs){
+				    	match = ua.match(OSRxs[agent]);
+                    	if(match) {
+                    		Sys.OS[agent] = true;
+                    		Sys.OS.version = match[2];
+                    		Sys.OS.name = match[1];
+                    		Sys.OS.fullName = match[0];
+                    	}
+				    }
+				    
+				    for(var agent in browserRxs){
+				    	match = ua.match(browserRxs[agent]);
+                    	if(match) {
+                    		Sys[agent] = true;
+                    		Sys.version = match[agent=="safari"?1:2]
+                    		Sys.name = match[agent=="safari"?2:1];
+                    		Sys.fullName = match[0];
+                    	}
+				    }
+				    alert(Sys.name + " / " + Sys.version);
+				    alert(Sys.OS.name + " / " + Sys.OS.version);
+               	})(navigator.userAgent.toLowerCase());
+            </script>
+</body>
+</html>

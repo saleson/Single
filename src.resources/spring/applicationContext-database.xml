@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+<!-- 	    <property name="locations" value="classpath:com/foo/jdbc.properties"/> -->
+ 		<property name="locations"> 
+ 			<list> 
+ 				<value>classpath*:single.properties</value> 
+ 				<value>classpath*:config/database.properties</value> 
+ 			</list> 
+ 		</property> 
+ 	</bean> 
+	
+	<bean id="dataSource" class="org.logicalcobwebs.proxool.ProxoolDataSource">
+		<!-- 标识,调试时显示的别名 -->
+ 		<property name="alias" value="${alias}"></property>
+        <property name="user" value="${username}"/>
+        <property name="password" value="${password}"/>
+        <property name="driverUrl" value="${driver_url}"/>
+        <property name="driver" value="${driver_class}"/>
+        <!-- 允许最大连接数,超过了这个连接，再有请求时，就排在队列中等候，最大的等待请求数由maximum-new-connections决定--> 
+        <property name="maximumConnectionCount" value="50"/>
+		<!-- 最小连接数--> 
+        <property name="minimumConnectionCount" value="5"/>
+<!--          <property name="houseKeepingSleepTime" value="50000" />  -->
+        <!--用于保持连接的测试语句--> 
+		<property name="houseKeepingTestSql" value="SELECT 1 FROM DUAL"/>
+		<!-- 如果为true,那么每个被执行的SQL语句将会在执行期被log记录(DEBUG LEVEL).你也可以注册一个ConnectionListener (参看ProxoolFacade)得到这些信息. -->
+		<property name="trace" value="${trace}"/>
+		<!-- 在使用之前测试 -->
+		<property name="testBeforeUse" value="${test_before_use}"/>
+	</bean>
+</beans>

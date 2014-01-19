@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<link href="framework/kendo/styles/kendo.common.min.css" rel="stylesheet" />
+<link href="framework/kendo/styles/kendo.default.min.css" rel="stylesheet" />
+<link href="content/shared/styles/examples.css?20121115" rel="stylesheet" />
+<link href="framework/single/styles/desktop.css" rel="stylesheet" />
+<script src="framework/kendo/js/jquery.min.js" type="text/javascript"></script>
+<!-- <script src="framework/kendo/js/kendo.all.min.js" type="text/javascript"></script> -->
+
+<script src="framework/kendo/sources/js/kendo.web.js" type="text/javascript"></script>
+<script src="framework/kendo/sources/js/kendo.window.js" type="text/javascript"></script>
+<script src="framework/single/js/SingleWindow.js" type="text/javascript"></script>
+<script src="framework/single/js/Desktop.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<div id="tablecover" style="overflow: hidden" class="desktop">
+	
+		<div id="appListContainer" style="height:617px"></div>
+		
+		<div class="bottomBarBgTask"></div>
+		
+		<div id="taskContainer"></div>
+		
+	</div>
+	
+	<div id="console"></div>
+
+	<script type="text/javascript">
+		function draggableOnDragStart(e) {
+			//alert("a");
+		}
+
+		function droptargetOnDragEnter(e) {
+			//alert("Now drop...");
+		}
+
+		function droptargetOnDragLeave(e) {
+			//alert("(Drop here)");
+		}
+
+		function droptargetOnDrop(e) {
+			///alert("You did great!");
+		}
+
+		function draggableOnDragEnd(e) {
+			//alerttext("Try again!");
+		}
+
+		$(document).ready(
+				function() {
+					$(".appButton").kendoDraggable({
+						hint : function(o) {
+							return o.clone();
+						},
+						dragstart : draggableOnDragStart,
+						dragend : draggableOnDragEnd,
+						container : $("#tablecover")
+					});
+
+					$(".appButton").kendoDropTarget({
+						filter : ".appButton",
+						dragenter : droptargetOnDragEnter,
+						dragleave : droptargetOnDragLeave,
+						drop : droptargetOnDrop
+					});
+					
+					
+					var taskContainer = $("#taskContainer").kendoTaskContainer({}).data("kendoTaskContainer");
+					
+					$("#console").kendoWindow({width: "300px", height: "100px"});
+					var desktop = $("#appListContainer").kendoDeskTop({}).data("kendoDeskTop");
+					
+					
+					var window = {
+						iframe:true,
+						content:"http://www.baidu.com",
+						width : "500px",
+						height : "400px",
+						actions : ["Refresh", "Custom", "Minimize", "Maximize", "Close" ]};
+						
+					var appbuts = [
+						{desktop: desktop, app:{id:1, name:"金山快盘"}, window: window},
+						{desktop: desktop, app:{id:2, name:"乐视网"}, window: window},
+						{desktop: desktop, app:{id:3, name:"阅读天下"}, window: window},
+						{desktop: desktop, app:{id:4, name:"阅读s"}, window: window},
+						{desktop: desktop, app:{id:5, name:"阅读5"}, window: window},
+						{desktop: desktop, app:{id:6, name:"阅读6"}, window: window},
+						{desktop: desktop, app:{id:7, name:"阅读7"}, window: window}
+						];
+					var appListContainer = $("#appListContainer").kendoAppListContainer({
+						taskContainer: taskContainer,
+						appButtons: appbuts
+					}).data("kendoAppListContainer");
+					
+				});
+	</script>
+</body>
+</html>
