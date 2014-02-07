@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import org.apache.log4j.PropertyConfigurator;
 
+import com.single.db.query.exceptions.DBDriverFailRegisteredException;
 import com.single.db.structure.Column;
 import com.single.db.structure.DBStructure;
 import com.single.db.structure.ForeignKey;
@@ -23,7 +24,7 @@ import com.single.db.structure.oracle.OracleTableResolve;
 public class TableGeneratorTest {
 	
 	
-	private static void test1() throws SQLException {
+	private static void test1() throws SQLException, DBDriverFailRegisteredException {
 		// TODO Auto-generated method stub
 		System.out.println(new File("").getAbsolutePath());
 		PropertyConfigurator.configure("src.resources/log4j.properties");
@@ -59,7 +60,7 @@ public class TableGeneratorTest {
 	}
 	
 	
-	private static void test2() throws SQLException {
+	private static void test2() throws SQLException, DBDriverFailRegisteredException {
 		PropertyConfigurator.configure("src.resources/log4j.properties");
 		DBStructure structure = new SingleDBStructure();
 		structure.setOnwer("simple");
@@ -73,7 +74,7 @@ public class TableGeneratorTest {
 	}
 	
 	
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) throws SQLException, DBDriverFailRegisteredException {
 		test2();
 	}
 }

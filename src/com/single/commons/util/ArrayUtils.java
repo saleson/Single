@@ -31,6 +31,7 @@ public class ArrayUtils extends org.apache.commons.lang3.ArrayUtils{
 	 * @param array2
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public static <T> T[] removeAll(T[] array1, T... array2){
 		List<Integer> list = new ArrayList<Integer>();
 		for(int i=0;i<array2.length;i++){

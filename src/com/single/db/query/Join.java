@@ -8,35 +8,34 @@ package com.single.db.query;
  *
  */
 public class Join {
-	private Table table;
-	private Table joinTable;	//关联的表
+	private QueryTable table;
+	private QueryTable referenceTable;	//关联的表
 	private JoinWay joinWay;	//关联方式
-	private QueryCondition query;	//关联条件
+	private JoinOn on;	//关联条件
 	
-	public Join(){}
 	
-	public Join(Table table, Table joinTable, JoinWay joinWay){
+	public Join(QueryTable table, QueryTable referenceTable, JoinWay joinWay){
 		this.table = table;
-		this.joinTable = joinTable;
+		this.referenceTable = referenceTable;
 		this.joinWay = joinWay;
-		this.query = new QueryCondition();
+		this.on = new JoinOn();
 	}
 	
 	
-	public Table getTable() {
+	public QueryTable getTable() {
 		return table;
 	}
 	
-	public void setTable(Table table) {
+	public void setTable(QueryTable table) {
 		this.table = table;
 	}
 	
-	public Table getJoinTable() {
-		return joinTable;
+	public QueryTable getReferenceTable() {
+		return referenceTable;
 	}
 	
-	public void setJoinTable(Table joinTable) {
-		this.joinTable = joinTable;
+	public void setReferenceTable(QueryTable referenceTable) {
+		this.referenceTable = referenceTable;
 	}
 	
 	public JoinWay getJoinWay() {
@@ -47,8 +46,7 @@ public class Join {
 		this.joinWay = joinWay;
 	}
 	
-	public QueryCondition getQuery() {
-		return query;
+	public JoinOn getJoinOn(){
+		return on;
 	}
-	
 }

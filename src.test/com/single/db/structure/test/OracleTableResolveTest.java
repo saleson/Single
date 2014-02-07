@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.Date;
 
 
+import com.single.db.query.exceptions.DBDriverFailRegisteredException;
 import com.single.db.structure.DBStructure;
 import com.single.db.structure.SingleDBStructure;
 import com.single.db.structure.Table;
@@ -16,7 +17,7 @@ import com.single.db.structure.oracle.OracleTableResolve;
 
 public class OracleTableResolveTest {
 
-	public static void test1() throws SQLException{
+	public static void test1() throws SQLException, DBDriverFailRegisteredException{
 		Date date = new Date();
 		DBStructure structure = new SingleDBStructure();
 		OracleDBStructureContext context = new OracleDBStructureContext(structure);
@@ -36,7 +37,7 @@ public class OracleTableResolveTest {
 		System.out.println((date1.getTime() - date.getTime())/1000);
 	}
 	
-	public static void test2() throws SQLException{
+	public static void test2() throws SQLException, DBDriverFailRegisteredException{
 		Date date = new Date();
 		DBStructure structure = new SingleDBStructure();
 		OracleDBStructureContext context = new OracleDBStructureContext(structure);
@@ -61,6 +62,8 @@ public class OracleTableResolveTest {
 		try {
 			test1();
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (DBDriverFailRegisteredException e) {
 			e.printStackTrace();
 		}
 	}

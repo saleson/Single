@@ -6,8 +6,12 @@ package com.single.db.query;
  * Purpose: Defines the Class Having
  ***********************************************************************/
 
-import java.util.*;
 
 /** @pdOid dd28639f-41bd-4e29-98a5-59d9c79b3d21 */
 public class Having extends Where {
+	
+	@Override
+	protected void appendConcatString(StringBuilder buf) {
+		buf.append(" HAVING ");
+	}
 }

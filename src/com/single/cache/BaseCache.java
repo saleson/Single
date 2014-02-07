@@ -13,7 +13,6 @@ import com.opensymphony.oscache.base.CacheEntry;
 import com.opensymphony.oscache.base.NeedsRefreshException;
 import com.opensymphony.oscache.base.algorithm.AbstractConcurrentReadCache;
 import com.opensymphony.oscache.general.GeneralCacheAdministrator;
-import com.single.app.component.metadate.parse.XMLParser;
 
 public class BaseCache extends GeneralCacheAdministrator{
 	

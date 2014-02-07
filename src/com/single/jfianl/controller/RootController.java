@@ -1,6 +1,5 @@
 package com.single.jfianl.controller;
 
-import javax.servlet.http.HttpServletRequest;
 
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
